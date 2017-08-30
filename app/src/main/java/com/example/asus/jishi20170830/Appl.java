@@ -16,8 +16,10 @@ public class Appl extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化xutils
         x.Ext.init(this);
         x.Ext.setDebug(false);
+        //初始化
         initimageloader();
     }
 

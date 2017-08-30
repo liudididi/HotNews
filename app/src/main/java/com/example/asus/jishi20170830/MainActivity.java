@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_main);
         x.view().inject(this);
+        // 初始化控件
         initview();
         RequestParams params=new RequestParams("http://v.juhe.cn/toutiao/index");
         params.addBodyParameter("key","22a108244dbb8d1f49967cd74a0c144d");
+        //post 请求
         x.http().post(params, new Callback.CacheCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -65,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         xlv.setPullRefreshEnable(true);
     }
 
+    /**
+     * 解析字符串
+     * @param result json结果字符串
+     */
     private void jiexi(String result) {
         try {
             JSONObject json=new JSONObject(result);
@@ -78,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
              list.add(news);
             }
             if(list!=null){
+                //添加适配器
                 Myxlv ad=new Myxlv(MainActivity.this,list);
                 xlv.setAdapter(ad);
             }
