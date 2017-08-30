@@ -1,12 +1,12 @@
 package com.example.asus.jishi20170830;
 
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -19,16 +19,18 @@ import java.util.List;
 
 import Adapter.Myxlv;
 import Bean.News;
+import Fragment.Fragment_left;
+import Fragment.Fragment_right;
 import view.xlistview.XListView;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends AppCompatActivity implements XListView.IXListViewListener {
+public class MainActivity extends SlidingFragmentActivity implements XListView.IXListViewListener {
     @ViewInject(R.id.xlv)
     XListView xlv;
     private List<News> list=new ArrayList<>();
     private Handler h=new Handler();
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_main);
         x.view().inject(this);
@@ -68,6 +70,31 @@ public class MainActivity extends AppCompatActivity implements XListView.IXListV
         xlv.setPullLoadEnable(true);
         xlv.setPullRefreshEnable(true);
         xlv.setXListViewListener(this);
+        initmenu();
+    }
+
+    private void initmenu() {
+        SlidingMenu menu=getSlidingMenu();
+        //左fragment布局
+        setBehindContentView(R.layout.left_count);
+        getSupportFragmentManager().beginTransaction().add(R.id.left_count,new Fragment_left()).commit();
+        //右fragment布局
+        menu.setSecondaryMenu(R.layout.right_count);
+        getSupportFragmentManager().beginTransaction().add(R.id.right_count,new Fragment_right()).commit();
+        menu.setMode(SlidingMenu.LEFT_RIGHT);
+        //设置展示距屏幕多少距离
+        menu.setBehindOffset(150);
+        //设置渐变效果
+        menu.setFadeDegree(0.35f);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+/*        SlidingMenu menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setFadeEnabled(true);
+         menu.setBehindOffset(100);
+        menu.attachToActivity(MainActivity.this,SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setFadeDegree(1f);
+        menu.setFadeEnabled(true);
+        menu.setMenu(R.layout.left_count);*/
     }
 
     /**
