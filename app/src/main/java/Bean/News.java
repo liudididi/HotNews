@@ -7,4 +7,5 @@ package Bean;
 public class News {
     public  String title;
     public  String thumbnail_pic_s;
+    public  String date;
 }
