@@ -15,7 +15,6 @@ import com.example.asus.jishi20170830.R;
 
 public class Fragment_right extends Fragment {
     private View view;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -32,7 +32,6 @@ public class HorLinearlaout extends LinearLayout implements ViewPager.OnPageChan
     private int offset = 0;
     private int scrollViewWidth = 0;
     private LinearLayout horscroll;
-    private ViewPager viewPager;
     private List<String> menus;
     private List<Fragment> fragments;
     private View view;
@@ -71,6 +70,13 @@ public class HorLinearlaout extends LinearLayout implements ViewPager.OnPageChan
               @Override
               public void onClick(View view) {
                   vp.setCurrentItem(finalI);
+                  if(finalI>=menus.size()/2){
+                      scrollViewWidth = hsv.getWidth();
+                      hsv.smoothScrollBy(scrollViewWidth/2, 0);
+                  }else if(finalI<menus.size()/2){
+                      scrollViewWidth = hsv.getWidth();
+                      hsv.smoothScrollBy(-scrollViewWidth/2, 0);
+                  }
               }
           });
           horscroll.addView(tv);
@@ -99,19 +105,17 @@ public class HorLinearlaout extends LinearLayout implements ViewPager.OnPageChan
 
     @Override
     public void onPageSelected(int position) {
+        //设置scrollView 滑动
         TextView textView= (TextView) horscroll.getChildAt(position);
         scrollViewWidth = hsv.getWidth();
-
         if ((scrollViewWidth + offset) < textView.getRight()) {//需要向右移动
             hsv.smoothScrollBy(textView.getRight() - (scrollViewWidth + offset), 0);
             offset += textView.getRight() - (scrollViewWidth + offset);
         }
-
         if (offset > textView.getLeft()) {//需要向左移动
             hsv.smoothScrollBy(textView.getLeft() - offset, 0);
             offset += textView.getLeft() - offset;
         }
-
     }
 
     @Override

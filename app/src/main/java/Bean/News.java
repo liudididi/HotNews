@@ -8,4 +8,5 @@ public class News {
     public  String title;
     public  String thumbnail_pic_s;
     public  String date;
+    public  String author_name;
 }

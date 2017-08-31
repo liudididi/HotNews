@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:id="@+id/tv_title2"
-    android:textSize="25dp"
+    android:textSize="20dp"
     android:layout_marginLeft="14dp"
     android:layout_marginStart="14dp"
     android:layout_alignTop="@+id/img_tu2"
@@ -24,12 +24,21 @@
         android:layout_alignParentStart="true"
        />
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:id="@+id/tv_date2"
         android:layout_below="@+id/img_tu2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:gravity="right"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/tv_autho2"
+        android:layout_below="@+id/img_tu2"
+        android:layout_alignParentLeft="true"
         android:gravity="right"
         android:textSize="20dp"
         />

@@ -6,7 +6,9 @@
     <HorizontalScrollView
         android:id="@+id/hsv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
         <LinearLayout
             android:orientation="horizontal"
             android:id="@+id/horscroll"

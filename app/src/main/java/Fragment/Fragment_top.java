@@ -88,6 +88,7 @@ public class Fragment_top extends Fragment{
                 News news=new News();
                 news.title=d.optString("title");
                 news.date=d.optString("date");
+                news.author_name=d.optString("author_name");
                 news.thumbnail_pic_s=d.optString("thumbnail_pic_s");
                 list.add(news);
             }
