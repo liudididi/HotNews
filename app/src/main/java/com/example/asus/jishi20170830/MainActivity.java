@@ -104,7 +104,7 @@ public class MainActivity extends SlidingFragmentActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.right_count,new Fragment_right()).commit();
         menu.setMode(SlidingMenu.LEFT_RIGHT);
         //设置展示距屏幕多少距离
-        menu.setBehindOffset(70);
+        menu.setBehindOffset(48);
         //设置渐变效果
         menu.setFadeDegree(0.35f);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);

@@ -6,7 +6,7 @@
     >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:id="@+id/re_tou"
         android:background="#505050"
         android:layout_alignParentTop="true"
@@ -17,8 +17,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:weightSum="3"
+            android:weightSum="4"
             >
+            <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/phone"
+            />
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -38,12 +45,13 @@
                 android:src="@mipmap/weibo"
                 />
         </LinearLayout>
-        <TextView
+        <Button
+            android:id="@+id/bt_denglu"
             android:background="@drawable/tv_bk"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="更多登录方式 >"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:gravity="center"
             android:padding="6dp"
             android:textColor="#cacaca"
@@ -155,6 +163,28 @@
         android:layout_below="@+id/linearLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <ImageView
+        android:background="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@mipmap/live"
+        android:layout_above="@+id/textView2"
+        android:layout_toLeftOf="@+id/textViewa"
+        android:layout_toStartOf="@+id/textViewa" />
+    <TextView
+        android:background="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:paddingTop="12dp"
+        android:paddingRight="50dp"
+        android:text="我的直播  >"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/textViewa"
+        android:gravity="right"
+        android:layout_above="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <TextView
         android:background="#ffffff"
         android:layout_width="match_parent"
@@ -169,19 +199,50 @@
         android:layout_alignParentStart="true" />
     <TextView
         android:background="#ffffff"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="9dp"
         android:text="头条商城"
         android:textSize="25dp"
         android:id="@+id/textView3"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
         android:background="#ffffff"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="11dp"
+        android:text="邀请好友得现金红包  >"
+        android:textSize="20dp"
+        android:id="@+id/textViewd"
+        android:paddingRight="50dp"
+        android:textColor="#bfbfbf"
+        android:gravity="right"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_above="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="11dp"
+        android:text="新人领188元红包  >"
+        android:textSize="20dp"
+        android:id="@+id/textViewdf"
+        android:paddingRight="50dp"
+        android:textColor="#bfbfbf"
+        android:gravity="right"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:background="#ffffff"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="9dp"
         android:text="京东特供"
