@@ -1,46 +1,46 @@
 package com.example.asus.jishi20170830;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+import com.umeng.socialize.UMShareAPI;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import Fragment.Fragment_left;
 import Fragment.Fragment_right;
 import Fragment.Fragment_top;
 import Fragment.Fragment_yule;
-import Fragment.Fragment_shehui;
-import Fragment.Fragment_guonei;
-import Fragment.Fragment_guoji;
-import Fragment.Fragment_tiyu;
 import Fragment.Fragment_caijing;
+import Fragment.Fragment_guoji;
+import Fragment.Fragment_guonei;
 import Fragment.Fragment_junshi;
 import Fragment.Fragment_keji;
+import Fragment.Fragment_shehui;
+import Fragment.Fragment_tiyu;
 import Fragment.Fragment_shishang;
+
 import Fragment.HorLinearlaout;
+import ShareUtils.SharePre;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends SlidingFragmentActivity {
+public class MainActivity extends AppCompatActivity {
     @ViewInject(R.id.hor)
     HorLinearlaout hor;
     @ViewInject(R.id.img_icon)
@@ -50,22 +50,38 @@ public class MainActivity extends SlidingFragmentActivity {
     private Handler h=new Handler();
     private  List<String> meuns=new ArrayList<>();
     private  List<Fragment> fragmens=new ArrayList<>();
+    private SharedPreferences sp;
+    private SharePre splei=new SharePre();
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor("#ff0000"));
         }
+        sp=splei.sharedpre();
+     if(sp.getString("iconurl",null)!=null){
+         x.image().bind(img_icon,sp.getString("iconurl",null));
+     }
         x.view().inject(this);
         //setContentView(R.layout.activity_main);
+
         initview();
         // 初始化控件
         initdata();
         hor.initdraw(meuns);
         hor.initdrawvp(fragmens);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(sp.getString("iconurl",null)!=null){
+            x.image().bind(img_icon,sp.getString("iconurl",null));
+        }
     }
 
     private void initdata() {
@@ -94,12 +110,20 @@ public class MainActivity extends SlidingFragmentActivity {
         initmenu();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
     private void initmenu() {
-        final SlidingMenu menu=getSlidingMenu();
+        final SlidingMenu menu=new SlidingMenu(this);
         //左fragment布局
-        setBehindContentView(R.layout.left_count);
+
+      menu.attachToActivity(MainActivity.this,SlidingMenu.TOUCHMODE_FULLSCREEN);
         getSupportFragmentManager().beginTransaction().add(R.id.left_count,new Fragment_left()).commit();
         //右fragment布局
+        menu.setMenu(R.layout.left_count);
         menu.setSecondaryMenu(R.layout.right_count);
         getSupportFragmentManager().beginTransaction().add(R.id.right_count,new Fragment_right()).commit();
         menu.setMode(SlidingMenu.LEFT_RIGHT);
@@ -129,6 +153,7 @@ public class MainActivity extends SlidingFragmentActivity {
         menu.setFadeEnabled(true);
         menu.setMenu(R.layout.left_count);*/
     }
+
 
 
 }

@@ -2,20 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f5f6"
+    android:background="@color/qjbg"
     >
     <TextView
         android:id="@+id/tv_shezhi"
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="5dp"
         android:text="设置"
         android:textSize="25dp"
         android:gravity="center"
+        android:textColor="@color/zi"
      />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="8dp"
@@ -28,7 +30,8 @@
         android:id="@+id/textView8"
         />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="10dp"
@@ -40,7 +43,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="8dp"
@@ -52,7 +56,8 @@
         android:layout_alignParentStart="true"
         android:id="@+id/textView9" />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="8dp"
@@ -65,7 +70,8 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/textView20" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
+        android:textColor="@color/zi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="8dp"
@@ -75,9 +81,11 @@
         android:layout_below="@+id/textView9"
         android:layout_toLeftOf="@+id/img_liebiao"
          />
-    <ImageView
+    <Switch
+
         android:id="@+id/img_liebiao"
-        android:background="#ffffff"
+        android:background="@color/bg"
+        android:paddingRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:src="@drawable/guan"
@@ -85,82 +93,88 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="8dp"
         android:text="非WiFi网络流量"
+        android:textColor="@color/zi"
         android:textSize="25dp"
         android:layout_below="@+id/textView10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textView19" />
+        android:id="@+id/tv_network" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="8dp"
         android:text="非WiFi网络播放提醒"
+        android:textColor="@color/zi"
         android:textSize="25dp"
         android:id="@+id/textView13"
-        android:layout_below="@+id/textView19"
+        android:layout_below="@+id/tv_network"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="8dp"
         android:text="推送通知"
         android:textSize="25dp"
+        android:textColor="@color/zi"
         android:id="@+id/textView11"
         android:layout_below="@+id/textView13"
         android:layout_toLeftOf="@+id/img_tui"
         android:layout_toStartOf="@+id/img_tui" />
-    <ImageView
+    <Switch
         android:id="@+id/img_tui"
-        android:background="#fff"
+        android:background="@color/bg"
+        android:paddingRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:src="@drawable/kai"
         android:layout_below="@+id/textView13"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="8dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="17dp"
         android:text="离线下载"
         android:textSize="25dp"
+        android:textColor="@color/zi"
+        android:id="@+id/tv_lixian"
         android:layout_below="@+id/textView11"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView12" />
+        android:layout_alignParentStart="true" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="8dp"
         android:text="版本检查"
         android:textSize="25dp"
+        android:textColor="@color/zi"
         android:id="@+id/textView14"
-        android:layout_below="@+id/textView12"
+        android:layout_below="@+id/tv_lixian"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="10dp"
         android:text="6.3.2"
         android:textSize="20dp"
         android:gravity="right"
+        android:textColor="@color/zi"
         android:layout_toRightOf="@+id/textView14"
-        android:layout_below="@+id/textView12"
+        android:layout_below="@+id/tv_lixian"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/textView21" />
@@ -186,6 +200,7 @@
             android:layout_height="wrap_content"
             android:textSize="16dp"
             android:text="©头条网 toutiao.com"
+            android:textColor="@color/zi"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -197,6 +212,7 @@
         android:layout_height="wrap_content"
         android:textSize="16dp"
         android:text="v6.3.2 Build 385a 104_20170817"
+            android:textColor="@color/zi"
         android:gravity="center"
         android:layout_below="@+id/textView16"
         android:layout_alignParentLeft="true"

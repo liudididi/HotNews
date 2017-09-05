@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/qjbg"
+    >
 <TextView
+    android:textColor="@color/zi"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/tv_title1"
@@ -16,6 +19,7 @@
         android:scaleType="centerCrop"
         />
     <TextView
+        android:textColor="@color/zi"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:textSize="20dp"
@@ -25,6 +29,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
+        android:textColor="@color/zi"
         android:id="@+id/tv_autho1"
         android:layout_width="wrap_content"
         android:layout_height="30dp"

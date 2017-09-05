@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f5f6"
+    android:background="@color/qjbg"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
             />
 
             <ImageView
+                android:id="@+id/img_qq"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -60,6 +61,7 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
     <LinearLayout
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -70,7 +72,6 @@
         android:layout_alignParentStart="true">
 
         <LinearLayout
-            android:background="#ffffff"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -85,6 +86,7 @@
                 android:src="@drawable/star" />
 
             <TextView
+                android:textColor="@color/zi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="收藏"
@@ -93,7 +95,6 @@
                 />
         </LinearLayout>
         <LinearLayout
-            android:background="#ffffff"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -108,15 +109,15 @@
                 android:src="@drawable/time" />
 
             <TextView
+                android:textColor="@color/zi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="收藏"
+                android:text="历史"
                 android:textSize="20dp"
                 android:gravity="center"
                 />
         </LinearLayout>
         <LinearLayout
-            android:background="#ffffff"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -124,16 +125,19 @@
             >
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/img_yue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="center"
-                android:src="@drawable/yue" />
+                android:src="@drawable/yue"
+                />
 
             <TextView
+                android:id="@+id/tv_yue"
+                android:textColor="@color/zi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="收藏"
+                android:text="夜间"
                 android:textSize="20dp"
                 android:gravity="center"
                 />
@@ -152,7 +156,8 @@
     </LinearLayout>
 
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="9dp"
@@ -164,7 +169,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <ImageView
-        android:background="#fff"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:src="@mipmap/live"
@@ -172,7 +177,7 @@
         android:layout_toLeftOf="@+id/textViewa"
         android:layout_toStartOf="@+id/textViewa" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="12dp"
@@ -186,7 +191,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="9dp"
@@ -198,19 +204,20 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="9dp"
         android:text="头条商城"
         android:textSize="25dp"
         android:id="@+id/textView3"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="11dp"
@@ -225,7 +232,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
-        android:background="#ffffff"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="11dp"
@@ -241,19 +248,20 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:paddingTop="9dp"
         android:text="京东特供"
-        android:layout_marginTop="2dp"
         android:textSize="25dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/textView4" />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="9dp"
@@ -265,7 +273,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <TextView
-        android:background="#ffffff"
+        android:textColor="@color/zi"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingTop="9dp"

@@ -3,8 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="bg">#fff</color>
-    <color name="qjbg">#f4f5f6</color>
-    <color name="btbg">#f00</color>
-    <color name="zi">#000</color>
+    <color name="bg">#505050</color>
+    <color name="qjbg">#999</color>
+    <color name="btbg">#999</color>
+    <color name="zi">#333</color>
 </resources>
