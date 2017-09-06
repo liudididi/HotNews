@@ -12,6 +12,8 @@ import com.umeng.socialize.UMShareAPI;
 
 import org.xutils.x;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by asus on 2017/8/30.
  */
@@ -32,6 +34,9 @@ public class Appl extends Application{
         initimageloader();
         MobSDK.init(this, "20a175d67fa67", "8958fcf2e554a4f6c54e2ae205d36cc3");
         UMShareAPI.get(this);
+        JPushInterface.setDebugMode(true);
+        //初始化极光推送
+        JPushInterface.init(this);
     }
 
     private void initimageloader() {

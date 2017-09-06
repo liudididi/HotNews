@@ -7,6 +7,29 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="170dp"
+        android:id="@+id/re_tou1"
+        >
+        <ImageView
+            android:id="@+id/img_q"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="152dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@mipmap/ic_launcher"
+            />
+        <TextView
+            android:id="@+id/tv_q"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="130dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_marginTop="120dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
         android:id="@+id/re_tou"
         android:background="#505050"
         android:layout_alignParentTop="true"

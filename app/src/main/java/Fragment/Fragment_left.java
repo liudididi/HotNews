@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import org.xutils.x;
 
 import java.util.Map;
 
@@ -46,6 +49,9 @@ public class Fragment_left extends Fragment {
     private SharePre splei=new SharePre();
     private ImageView img_yue;
     private TextView tv_yue;
+    private ImageView img_q;
+    private RelativeLayout re_tou;
+    private TextView tv_q;
 
 
     @Nullable
@@ -59,6 +65,19 @@ public class Fragment_left extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initview();
+        if(sp.getBoolean("retou",false)){
+            re_tou.setVisibility(View.INVISIBLE);
+            DisplayImageOptions option=new DisplayImageOptions.Builder()
+                    .displayer(new RoundedBitmapDisplayer(120))
+                    .cacheInMemory(true)
+                    .cacheOnDisk(true)
+                    .build();
+            ImageLoader.getInstance().displayImage(sp.getString("imgq",null),img_q,option);
+            tv_q.setText(sp.getString("tvq",null));
+
+        }else {
+            re_tou.setVisibility(View.VISIBLE);
+        }
         if(sp.getBoolean("night",false)){
             tv_yue.setText("白天");
         }else {
@@ -93,7 +112,6 @@ public class Fragment_left extends Fragment {
                     tv_yue.setText("夜间");
                     ((AppCompatActivity)getActivity()).getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     sp.edit().putBoolean("night",true).commit();
-
                 }
 
             }
@@ -106,22 +124,32 @@ public class Fragment_left extends Fragment {
         }
 
         @Override
-        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> map) {
             Toast.makeText(getActivity(), "Authorize succeed", Toast.LENGTH_SHORT).show();
-            String name = data.get("name");
-            String gender = data.get("gender");
-            String photoUrl = data.get("iconurl");
-            sp = splei.sharedpre();
-            sp.edit().putString("iconurl",photoUrl).commit();
+            String conutl=map.get("iconurl");
+            String name= map.get("name");
+            tv_q.setText(name);
+            // x.image().bind(img_qq,conutl);
+            sp.edit().putBoolean("retou",true).commit();
+            sp.edit().putString("imgq",conutl).commit();
+            sp.edit().putString("tvq",name).commit();
+            View inflate = View.inflate(getActivity(), R.layout.activity_main, null);
+            ImageView img_user=inflate.findViewById(R.id.img_icon);
+            x.image().bind(img_user,conutl);
+            DisplayImageOptions option=new DisplayImageOptions.Builder()
+                    .displayer(new RoundedBitmapDisplayer(120))
+                    .cacheInMemory(true)
+                    .cacheOnDisk(true)
+                    .build();
+            ImageLoader.getInstance().displayImage(conutl,img_q,option);
+            re_tou.setVisibility(View.INVISIBLE);
         }
-
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
             if (UMShareAPI.get(getActivity()).isInstall(getActivity(), SHARE_MEDIA.QQ)) {
                 Toast.makeText(getActivity(), "Authorize fail", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getActivity(), "no install QQ", Toast.LENGTH_SHORT).show();
-
             }
         }
 
@@ -135,6 +163,9 @@ public class Fragment_left extends Fragment {
         img_qq = view.findViewById(R.id.img_qq);
         img_yue = view.findViewById(R.id.img_yue);
         tv_yue = view.findViewById(R.id.tv_yue);
+        tv_q = view.findViewById(R.id.tv_q);
+        img_q = view.findViewById(R.id.img_q);
+        re_tou = view.findViewById(R.id.re_tou);
         sp=splei.sharedpre();
     }
 }

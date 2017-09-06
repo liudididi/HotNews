@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
     private Handler h=new Handler();
     private  List<String> meuns=new ArrayList<>();
     private  List<Fragment> fragmens=new ArrayList<>();
-    private SharedPreferences sp;
-    private SharePre splei=new SharePre();
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,27 +60,14 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor("#ff0000"));
         }
-        sp=splei.sharedpre();
-     if(sp.getString("iconurl",null)!=null){
-         x.image().bind(img_icon,sp.getString("iconurl",null));
-     }
         x.view().inject(this);
         //setContentView(R.layout.activity_main);
-
         initview();
         // 初始化控件
         initdata();
         hor.initdraw(meuns);
         hor.initdrawvp(fragmens);
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(sp.getString("iconurl",null)!=null){
-            x.image().bind(img_icon,sp.getString("iconurl",null));
-        }
-    }
-
     private void initdata() {
         meuns.add("头条");
         meuns.add("社会");
@@ -120,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         final SlidingMenu menu=new SlidingMenu(this);
         //左fragment布局
 
-      menu.attachToActivity(MainActivity.this,SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.attachToActivity(MainActivity.this,SlidingMenu.TOUCHMODE_FULLSCREEN);
         getSupportFragmentManager().beginTransaction().add(R.id.left_count,new Fragment_left()).commit();
         //右fragment布局
         menu.setMenu(R.layout.left_count);

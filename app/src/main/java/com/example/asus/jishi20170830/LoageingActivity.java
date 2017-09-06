@@ -130,6 +130,4 @@ public class LoageingActivity extends AppCompatActivity implements View.OnClickL
         }
 
     }
-
-
 }
